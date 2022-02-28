@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 04:20:57 by thpham-v          #+#    #+#             */
-/*   Updated: 2022/02/25 04:21:46 by thpham-v         ###   ########.fr       */
+/*   Updated: 2022/02/28 14:20:48 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	init_info(int ac, char **av, t_info *info)
 {
-	if (check_error(ac, av) == -1)
+	if (parsing_error(ac, av) == -1)
 		return (-1);
-	info->n_philo = (int)long_atoi(av[1]);
+	info->nb_philo = (int)long_atoi(av[1]);
 	info->t_to_die = (unsigned int)long_atoi(av[2]);
 	info->t_to_eat = (unsigned int)long_atoi(av[3]);
 	info->t_to_sleep = (unsigned int)long_atoi(av[4]);
@@ -36,11 +36,11 @@ void	init_philos(t_p *philos, t_info *info)
 	int	i;
 
 	i = 0;
-	while (i < info->n_philo)
+	while (i < info->nb_philo)
 	{
 		philos[i].info = info;
 		philos[i].id = i + 1;
-		philos[i].n = info->n_philo;
+		philos[i].n = info->nb_philo;
 		philos[i].count = 0;
 		philos[i].stop = 0;
 		philos[i].t_die = info->t_to_die;
