@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vintran <vintran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 18:57:28 by thpham-v          #+#    #+#             */
-/*   Updated: 2022/02/28 14:19:47 by thpham-v         ###   ########.fr       */
+/*   Updated: 2022/02/28 13:58:30 by vintran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@
 
 typedef struct s_info
 {
-	int				nb_philo;
 	unsigned int	t_to_die;
 	unsigned int	t_to_eat;
 	unsigned int	t_to_sleep;
 	unsigned int	t_start;
-	int				n_meals;
+	int				nb_philo;
+	int				nb_meals;
 	int				stop;
 	pthread_mutex_t	m_stop;
 	pthread_mutex_t	m_msg;
@@ -37,14 +37,15 @@ typedef struct s_info
 typedef struct s_p
 {
 	t_info			*info;
-	int				id;
-	int				n;
-	int				count;
+	
 	unsigned int	t_die;
 	unsigned int	t_eat;
 	unsigned int	t_sleep;
-	int				n_meals;
 	unsigned int	t_last_eat;
+	int				nb_meals;
+	int				id;
+	int				n;
+	int				count;
 	int				stop;
 	pthread_t		faucheuse;
 	pthread_mutex_t	*r_fork;
@@ -57,7 +58,6 @@ int				ft_strlen(char *str);
 int				ft_strcmp(const char *s1, const char *s2);
 long			long_atoi(char *str);
 unsigned int	get_time(void);
-void			print_status(t_p *p, char *status);
 void			print_msg(t_p *p, char *msg);
 int				init_info(int ac, char **av, t_info *info);
 void			init_philos(t_p *philos, t_info *info);

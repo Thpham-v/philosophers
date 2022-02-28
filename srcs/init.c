@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vintran <vintran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 04:20:57 by thpham-v          #+#    #+#             */
-/*   Updated: 2022/02/28 14:20:48 by thpham-v         ###   ########.fr       */
+/*   Updated: 2022/02/28 13:56:21 by vintran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	init_info(int ac, char **av, t_info *info)
 	info->t_to_eat = (unsigned int)long_atoi(av[3]);
 	info->t_to_sleep = (unsigned int)long_atoi(av[4]);
 	if (ac == 6)
-		info->n_meals = (int)long_atoi(av[5]);
+		info->nb_meals = (int)long_atoi(av[5]);
 	else
-		info->n_meals = -1;
+		info->nb_meals = -1;
 	info->stop = 0;
 	pthread_mutex_init(&info->m_stop, NULL);
 	pthread_mutex_init(&info->m_msg, NULL);
@@ -46,7 +46,7 @@ void	init_philos(t_p *philos, t_info *info)
 		philos[i].t_die = info->t_to_die;
 		philos[i].t_eat = info->t_to_eat;
 		philos[i].t_sleep = info->t_to_sleep;
-		philos[i].n_meals = info->n_meals;
+		philos[i].nb_meals = info->nb_meals;
 		i++;
 	}
 }

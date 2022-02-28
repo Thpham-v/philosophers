@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_activity.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vintran <vintran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 17:07:48 by thpham-v          #+#    #+#             */
-/*   Updated: 2022/02/28 14:26:34 by thpham-v         ###   ########.fr       */
+/*   Updated: 2022/02/28 13:57:21 by vintran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	eat_activity(t_p *p)
 void	activity(t_p *p)
 {
 	eat_activity(p);
-	if (p->n_meals != -1 && p->count == p->n_meals)
+	if (p->nb_meals != -1 && p->count == p->nb_meals)
 	{
 		pthread_mutex_lock(&p->info->m_stop);
 		p->stop = 1;
