@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:24:06 by thpham-v          #+#    #+#             */
-/*   Updated: 2022/02/28 14:25:39 by thpham-v         ###   ########.fr       */
+/*   Updated: 2022/04/09 03:16:56 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	*routine(void *arg)
 	p->t_last_eat = p->info->t_start;
 	if (pthread_create(&p->faucheuse, NULL, &is_dead, p))
 		perror("pthread_create failled");
-	pthread_detach(p->faucheuse);
 	stop = 0;
 	while (!stop)
 	{
@@ -56,6 +55,7 @@ void	*routine(void *arg)
 		stop = p->info->stop + p->stop;
 		pthread_mutex_unlock(&p->info->m_stop);
 	}
+	pthread_join(p->faucheuse, NULL);
 	return (NULL);
 }
 
