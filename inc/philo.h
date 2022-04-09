@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vintran <vintran@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 18:57:28 by thpham-v          #+#    #+#             */
-/*   Updated: 2022/02/28 13:58:30 by vintran          ###   ########.fr       */
+/*   Updated: 2022/04/09 03:23:17 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct s_info
 typedef struct s_p
 {
 	t_info			*info;
-	
 	unsigned int	t_die;
 	unsigned int	t_eat;
 	unsigned int	t_sleep;
