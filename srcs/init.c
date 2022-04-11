@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vintran <vintran@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 04:20:57 by thpham-v          #+#    #+#             */
-/*   Updated: 2022/02/28 13:56:21 by vintran          ###   ########.fr       */
+/*   Updated: 2022/04/11 04:43:26 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	distribute_forks(t_p *p, pthread_mutex_t *forks, int n)
 
 	pthread_mutex_init(&forks[0], NULL);
 	p[0].l_fork = &forks[0];
-	p[0].r_fork = NULL;
 	p[0].r_fork = &forks[n - 1];
 	i = 1;
 	while (i < n)

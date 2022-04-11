@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:24:06 by thpham-v          #+#    #+#             */
-/*   Updated: 2022/04/09 03:16:56 by thpham-v         ###   ########.fr       */
+/*   Updated: 2022/04/11 02:11:48 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	*routine(void *arg)
 	p = (t_p *)arg;
 	p->t_last_eat = p->info->t_start;
 	if (pthread_create(&p->faucheuse, NULL, &is_dead, p))
-		perror("pthread_create failled");
+		perror("pthread_create failed");
 	stop = 0;
 	while (!stop)
 	{
@@ -55,7 +55,8 @@ void	*routine(void *arg)
 		stop = p->info->stop + p->stop;
 		pthread_mutex_unlock(&p->info->m_stop);
 	}
-	pthread_join(p->faucheuse, NULL);
+	if (pthread_join(p->faucheuse, NULL))
+		perror("pthread_join failed");
 	return (NULL);
 }
 
@@ -83,14 +84,14 @@ int	launching_threading(t_p *philos, t_info *info, pthread_t *th)
 	while (i < info->nb_philo)
 	{
 		if (pthread_create(&th[i], NULL, &routine, &philos[i]))
-			perror("pthread_create failled");
+			perror("pthread_create failed");
 		i++;
 	}
 	i = 0;
 	while (i < info->nb_philo)
 	{
 		if (pthread_join(th[i], NULL))
-			perror("join failled");
+			perror("join failed");
 		i++;
 	}
 	return (0);
